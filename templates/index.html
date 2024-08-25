@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{.PageTitle}}</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        font-size: 1.8rem;
+        color: #007bff;
+        margin: 0;
+      }
+      .header p {
+        font-size: 1rem;
+        color: #555;
+        margin: 5px 0;
+      }
+      .people-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .person-item {
+        flex: 1 1 calc(50% - 10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f0f4f8;
+        border-radius: 8px;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .person-item:hover {
+        background-color: #e2e6ea;
+      }
+      .person-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+      }
+      .person-craft {
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.85rem;
+        color: #999;
+      }
+      .author-info {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+      }
+      .author-info a {
+        color: #007bff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .author-info a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>{{.PageTitle}}</h1>
+        <p>Currently, {{.Data.NumberOfPeople}} people are in space</p>
+      </div>
+      <div class="people-list">
+        {{range .Data.People}}
+        <div class="person-item">
+          <div class="person-name">{{.Name}}</div>
+          <div class="person-craft">{{.Craft}}</div>
+        </div>
+        {{end}}
+      </div>
+      <div class="footer">
+        <p>Data sourced from open-notify.org</p>
+      </div>
+      <div class="author-info">
+        <p>Created by Navjot Singh</p>
+        <p>Project built using GO</p>
+        <a href="{{.GithubLink}}" target="_blank">GitHub</a>
+        |
+        <a href="{{.LinkedinLink}}" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </body>
+</html>
