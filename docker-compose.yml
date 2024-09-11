@@ -1,6 +1,10 @@
 # version: "3.8" docker compose v2 (=the cli plugin) will always use the latest version
 services:
   web:
+    # -i (interactive) and -t (pseudo-TTY) flags to run your containers in an interactive mode
+    # to exit press ctrl+p then ctrl+q
+    stdin_open: true
+    tty: true
     build:
       context: .
       # Correct the path to your Dockerfile
