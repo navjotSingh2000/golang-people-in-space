@@ -30,8 +30,7 @@ const LINKEDIN_LINK = "https://www.linkedin.com/in/navjotsingh5/"
 
 func main() {
 	http.HandleFunc("/peopleinspace", getPeopleInSpace)
-	fmt.Println("Server listening on localhost at port 3333")
-	err := http.ListenAndServe(":3333", nil)
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		log.Fatalln("Server failed to start:", err)
 	}
